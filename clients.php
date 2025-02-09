@@ -257,7 +257,7 @@ $(document).ready(function() {
 								$client_user	= $row["user"];
 								$client_id		= $row["id"];
 
-								$sql_groups = $dbh->prepare("SELECT DISTINCT group_id FROM " . TABLE_MEMBERS . " WHERE client_id=:id");
+								$sql_groups = $dbh->prepare("SELECT DISTINCT group_id FROM " . TABLE_MEMBERS . " WHERE client_id=:id and client_user=:user");
 								$sql_groups->bindParam(':id', $client_id, PDO::PARAM_INT);
 								$sql_groups->execute();
 								$count_groups	= $sql_groups->rowCount();
@@ -338,15 +338,6 @@ $(document).ready(function() {
 											else {
 												$files_link = 'javascript:void(0);';
 												$files_button = 'disabled';
-											}
-
-											if ($count_groups > 0) {
-												$groups_link = 'groups.php?member='.$row["id"];
-												$groups_button = 'btn-primary';
-											}
-											else {
-												$groups_link = 'javascript:void(0);';
-												$groups_button = 'disabled';
 											}
 										?>
 										<a href="<?php echo $files_link; ?>" class="btn btn-small <?php echo $files_button; ?>"><?php _e('Manage files','cftp_admin'); ?></a>
