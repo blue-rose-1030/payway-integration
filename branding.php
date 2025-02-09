@@ -79,19 +79,6 @@ if ($_POST) {
 }
 ?>
 
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$("form").submit(function() {
-				clean_form(this);
-
-				is_complete(this.select_logo,'<?php _e('Please select an image file to upload','cftp_admin'); ?>');
-
-				// show the errors or continue if everything is ok
-				if (show_form_errors() == false) { return false; }
-			});
-		});
-	</script>
-
 	<form action="branding.php" name="logoupload" method="post" enctype="multipart/form-data">
 		<div class="options_box whitebox">
 
@@ -160,6 +147,19 @@ if ($_POST) {
 		</div>
 	</form>
 	<div class="clear"></div>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("form").submit(function() {
+				clean_form(this);
+
+				is_complete(this.select_logo,'<?php _e('Please select an image file to upload','cftp_admin'); ?>');
+
+				// show the errors or continue if everything is ok
+				if (show_form_errors() == false) { return false; }
+			});
+		});
+	</script>
 
 </div>
 
