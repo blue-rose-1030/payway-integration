@@ -1,8 +1,10 @@
 <?php
-	require_once('../sys.includes.php');
-	$this_user = CURRENT_USER_USERNAME;
-	if (!empty($_GET['client']) && CURRENT_USER_LEVEL != '0') {
-		$this_user = $_GET['client'];
+	if ($count_groups > 0) {
+		$groups_link = 'groups.php?member='.$row["id"];
+		$groups_button = 'btn-primary';
 	}
-	include_once(TEMPLATE_PATH);
+	else {
+		$groups_link = 'javascript:void(0);';
+		$groups_button = 'disabled';
+	}
 ?>
