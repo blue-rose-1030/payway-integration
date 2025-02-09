@@ -88,10 +88,6 @@ switch ($user_form_type) {
 			<input type="text" name="add_user_form_name" id="add_user_form_name" class="required" value="<?php echo (isset($add_user_data_name)) ? html_output(stripslashes($add_user_data_name)) : ''; ?>" />
 		</li>
 		<li>
-			<label for="add_user_form_user"><?php _e('Log in username','cftp_admin'); ?></label>
-			<input type="text" name="add_user_form_user" id="add_user_form_user" class="<?php if (!$disable_user) { echo 'required'; } ?>" maxlength="<?php echo MAX_USER_CHARS; ?>" value="<?php echo (isset($add_user_data_user)) ? html_output(stripslashes($add_user_data_user)) : ''; ?>" <?php if ($disable_user) { echo 'readonly'; } ?> placeholder="<?php _e("Must be alphanumeric",'cftp_admin'); ?>" />
-		</li>
-		<li>
 			<button type="button" class="btn password_toggler pass_toggler_show"><i class="icon-eye-open"></i></button>
 			<label for="add_user_form_pass"><?php _e('Password','cftp_admin'); ?></label>
 			<input name="add_user_form_pass" id="add_user_form_pass" class="<?php if ($require_pass) { echo 'required'; } ?> password_toggle" type="password" maxlength="<?php echo MAX_PASS_CHARS; ?>" />
@@ -100,6 +96,10 @@ switch ($user_form_type) {
 		<li>
 			<label for="add_user_form_email"><?php _e('E-mail','cftp_admin'); ?></label>
 			<input type="text" name="add_user_form_email" id="add_user_form_email" class="required" value="<?php echo (isset($add_user_data_email)) ? html_output(stripslashes($add_user_data_email)) : ''; ?>" placeholder="<?php _e("Must be valid and unique",'cftp_admin'); ?>" />
+		</li>
+		<li>
+			<label for="add_user_form_user"><?php _e('Log in username','cftp_admin'); ?></label>
+			<input type="text" name="add_user_form_user" id="add_user_form_user" class="<?php if (!$disable_user) { echo 'required'; } ?>" maxlength="<?php echo MAX_USER_CHARS; ?>" value="<?php echo (isset($add_user_data_user)) ? html_output(stripslashes($add_user_data_user)) : ''; ?>" <?php if ($disable_user) { echo 'readonly'; } ?> placeholder="<?php _e("Must be alphanumeric",'cftp_admin'); ?>" />
 		</li>
 		<?php
 			if ($extra_fields == true) {
@@ -110,6 +110,7 @@ switch ($user_form_type) {
 					<option value="9" <?php echo (isset($add_user_data_level) && $add_user_data_level == '9') ? 'selected="selected"' : ''; ?>><?php echo USER_ROLE_LVL_9; ?></option>
 					<option value="8" <?php echo (isset($add_user_data_level) && $add_user_data_level == '8') ? 'selected="selected"' : ''; ?>><?php echo USER_ROLE_LVL_8; ?></option>
 					<option value="7" <?php echo (isset($add_user_data_level) && $add_user_data_level == '7') ? 'selected="selected"' : ''; ?>><?php echo USER_ROLE_LVL_7; ?></option>
+					<option value="6" <?php echo (isset($add_user_data_level) && $add_user_data_level == '6') ? 'selected="selected"' : ''; ?>><?php echo USER_ROLE_LVL_6; ?></option>
 				</select>
 			</li>
 			<li>
@@ -123,6 +124,7 @@ switch ($user_form_type) {
 
 	<div class="inside_form_buttons">
 		<button type="submit" name="submit" class="btn btn-wide btn-primary"><?php echo $submit_value; ?></button>
+		<button type="button" name="cancel" class="btn btn-wide btn-primary">Cancel</button>
 	</div>
 
 	<?php
